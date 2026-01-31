@@ -139,14 +139,14 @@ export default function Scoreboard({
     <div className="scoreboard relative w-full max-w-4xl overflow-hidden rounded-2xl border-4 border-amber-500/40 bg-linear-to-b from-slate-900 via-slate-800 to-slate-900 shadow-2xl shadow-black/50">
       <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.03)_2px,rgba(0,0,0,0.03)_4px)] opacity-50" />
 
-      <div className="relative px-8 py-6 md:px-12 md:py-8">
-        <div className="mb-6 flex items-center justify-between border-b border-amber-500/30 pb-4">
+      <div className="relative px-8 py-8 md:px-14 md:py-10">
+        <div className="mb-8 flex items-center justify-between border-b border-amber-500/30 pb-5">
           <div className="text-left">
             <input
               type="text"
               value={periodLabelDisplay}
               onChange={(e) => setPeriodLabelDisplay(e.target.value)}
-              className="w-full max-w-[10rem] border-0 border-b border-transparent bg-transparent text-left text-xs font-bold uppercase tracking-[0.35em] text-amber-400/90 outline-none placeholder:text-amber-400/50 focus:border-amber-500/50"
+              className="w-full max-w-[14rem] border-0 border-b-2 border-transparent bg-transparent py-1.5 text-left text-sm font-bold uppercase tracking-[0.35em] text-amber-400/90 outline-none placeholder:text-amber-400/50 focus:border-amber-500/50 md:text-base"
               placeholder="Quarter"
             />
           </div>
@@ -164,17 +164,17 @@ export default function Scoreboard({
           </div>
         </div>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-4 md:gap-8">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-6 md:gap-10">
           <div className="flex flex-col items-start text-center">
             <input
               type="text"
               value={displayTeam1}
               onChange={(e) => setDisplayTeam1(e.target.value)}
               onBlur={() => saveTeamNames(displayTeam1, displayTeam2)}
-              className="w-full max-w-[12rem] border-0 border-b border-transparent bg-transparent font-bold uppercase tracking-widest text-slate-300 outline-none placeholder:text-slate-500 focus:border-amber-500/50 md:max-w-none md:text-center md:text-lg"
+              className="w-full max-w-[14rem] border-0 border-b-2 border-transparent bg-transparent py-2 font-bold uppercase tracking-widest text-slate-300 outline-none placeholder:text-slate-500 focus:border-amber-500/50 md:max-w-none md:text-center md:text-xl"
               placeholder="Team"
             />
-            <div className="mt-2 w-full text-center font-mono text-7xl font-bold tabular-nums text-white drop-shadow-lg md:mt-3 md:text-8xl lg:text-9xl">
+            <div className="mt-2 w-full text-center font-mono text-9xl font-bold tabular-nums text-white drop-shadow-lg md:mt-3 md:text-[10rem] lg:text-[12rem]">
               {score1}
             </div>
           </div>
@@ -192,10 +192,10 @@ export default function Scoreboard({
               value={displayTeam2}
               onChange={(e) => setDisplayTeam2(e.target.value)}
               onBlur={() => saveTeamNames(displayTeam1, displayTeam2)}
-              className="w-full max-w-[12rem] border-0 border-b border-transparent bg-transparent font-bold uppercase tracking-widest text-slate-300 outline-none placeholder:text-slate-500 focus:border-amber-500/50 md:max-w-none md:text-center md:text-lg"
+              className="w-full max-w-[14rem] border-0 border-b-2 border-transparent bg-transparent py-2 font-bold uppercase tracking-widest text-slate-300 outline-none placeholder:text-slate-500 focus:border-amber-500/50 md:max-w-none md:text-center md:text-xl"
               placeholder="Team"
             />
-            <div className="mt-2 w-full text-center font-mono text-7xl font-bold tabular-nums text-white drop-shadow-lg md:mt-3 md:text-8xl lg:text-9xl">
+            <div className="mt-2 w-full text-center font-mono text-9xl font-bold tabular-nums text-white drop-shadow-lg md:mt-3 md:text-[10rem] lg:text-[12rem]">
               {score2}
             </div>
           </div>
