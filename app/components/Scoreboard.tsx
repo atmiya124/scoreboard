@@ -137,11 +137,9 @@ export default function Scoreboard({
   return (
     <>
     <div className="scoreboard relative w-full max-w-4xl overflow-hidden rounded-2xl border-4 border-amber-500/40 bg-linear-to-b from-slate-900 via-slate-800 to-slate-900 shadow-2xl shadow-black/50">
-      {/* Subtle scan-line effect */}
       <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.03)_2px,rgba(0,0,0,0.03)_4px)] opacity-50" />
 
       <div className="relative px-8 py-6 md:px-12 md:py-8">
-        {/* Period & clock bar */}
         <div className="mb-6 flex items-center justify-between border-b border-amber-500/30 pb-4">
           <div className="text-left">
             <input
@@ -166,9 +164,7 @@ export default function Scoreboard({
           </div>
         </div>
 
-        {/* Teams & scores */}
         <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-4 md:gap-8">
-          {/* Team 1 */}
           <div className="flex flex-col items-start text-center">
             <input
               type="text"
@@ -183,7 +179,6 @@ export default function Scoreboard({
             </div>
           </div>
 
-          {/* Vertical line - gradient, only center visible, 2px */}
           <div
             className="w-[2px] self-stretch shrink-0"
             style={{
@@ -191,7 +186,6 @@ export default function Scoreboard({
             }}
           />
 
-          {/* Team 2 */}
           <div className="flex flex-col items-end text-center">
             <input
               type="text"
@@ -208,97 +202,55 @@ export default function Scoreboard({
         </div>
       </div>
 
-      {/* Control strip for demo */}
-      <div className="flex flex-wrap items-center justify-center gap-4 border-t border-amber-500/30 bg-black/30 px-6 py-4">
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-medium uppercase text-slate-400">
-            Team
-          </span>
-          <button
-            type="button"
-            onClick={() => setScore1((s) => s + 1)}
-            className="rounded bg-amber-500 px-3 py-1.5 text-sm font-bold text-slate-900 transition hover:bg-amber-400"
-          >
-            +1
-          </button>
-          <button
-            type="button"
-            onClick={() => setScore1((s) => Math.max(0, s - 1))}
-            className="rounded bg-slate-600 px-3 py-1.5 text-sm font-bold text-white transition hover:bg-slate-500"
-          >
-            −1
-          </button>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-medium uppercase text-slate-400">
-            Team
-          </span>
-          <button
-            type="button"
-            onClick={() => setScore2((s) => s + 1)}
-            className="rounded bg-amber-500 px-3 py-1.5 text-sm font-bold text-slate-900 transition hover:bg-amber-400"
-          >
-            +1
-          </button>
-          <button
-            type="button"
-            onClick={() => setScore2((s) => Math.max(0, s - 1))}
-            className="rounded bg-slate-600 px-3 py-1.5 text-sm font-bold text-white transition hover:bg-slate-500"
-          >
-            −1
-          </button>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-medium uppercase text-slate-400">
-            Clock
-          </span>
+      <div className="flex flex-wrap items-center justify-end border-t border-slate-700/50 bg-black/20 px-6 py-2">
+        <div className="flex items-center gap-1.5 opacity-60">
+          <span className="text-[10px] font-medium uppercase tracking-wider text-slate-500">Clock</span>
           <input
             type="text"
             value={clock}
             onChange={(e) => setClock(e.target.value)}
-            className="w-24 rounded bg-slate-700 px-2 py-1.5 font-mono text-sm text-white"
+            className="w-16 rounded border-0 bg-slate-800/60 px-1.5 py-0.5 font-mono text-xs text-slate-400 outline-none placeholder:text-slate-600 focus:opacity-100"
             placeholder="12:00"
           />
         </div>
       </div>
     </div>
 
-    {/* Floating controls - bottom right */}
-    <div className="fixed bottom-6 right-6 z-10 flex items-center gap-3">
+    <div className="fixed bottom-4 right-4 z-10 flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100 focus-within:opacity-100">
       <button
         type="button"
         onClick={toggleTimer}
-        className={`flex h-12 items-center gap-2 rounded-full border px-4 shadow-lg transition focus:outline-none focus:ring-2 focus:ring-amber-500/50 ${
+        className={`flex h-8 items-center gap-1.5 rounded border px-2.5 transition focus:outline-none focus:ring-1 focus:ring-slate-500 ${
           isTimerRunning
-            ? "border-amber-500/60 bg-amber-500/20 text-amber-400"
-            : "border-amber-500/40 bg-slate-800/95 text-amber-400 hover:bg-slate-700 hover:text-amber-300"
+            ? "border-slate-600 bg-slate-700/80 text-slate-400"
+            : "border-slate-700 bg-slate-800/60 text-slate-500 hover:border-slate-600 hover:text-slate-400"
         }`}
         aria-label={isTimerRunning ? "Pause timer" : "Start timer"}
       >
         {isTimerRunning ? (
           <>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <rect x="6" y="4" width="4" height="16" rx="1" />
               <rect x="14" y="4" width="4" height="16" rx="1" />
             </svg>
-            <span className="text-sm font-semibold">Pause</span>
+            <span className="text-[10px] font-medium uppercase tracking-wider">Pause</span>
           </>
         ) : (
           <>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
             </svg>
-            <span className="text-sm font-semibold">Start timer</span>
+            <span className="text-[10px] font-medium uppercase tracking-wider">Start</span>
           </>
         )}
       </button>
       <button
         type="button"
         onClick={handleReset}
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-500/40 bg-slate-800/95 text-amber-400 shadow-lg transition hover:bg-slate-700 hover:text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+        className="flex h-8 w-8 items-center justify-center rounded border border-slate-700 bg-slate-800/60 text-slate-500 transition hover:border-slate-600 hover:text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-500"
         aria-label="Reset scoreboard"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
           <path d="M3 3v5h5" />
         </svg>
